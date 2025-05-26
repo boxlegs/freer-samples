@@ -1,5 +1,7 @@
 # Reverse Engineering the Free Sampler
 
+There's the request/response for when we first scan the QR. There are three slugs that I assume are used to identify the machine.
+
 ```http
 GET /TRSYULK8/WFXXJZ/5 HTTP/2
 Host: burberry.freesamples.net.au
