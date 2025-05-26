@@ -10,7 +10,5 @@ Hitting **Submit** brings you to a dead end page, while the screen on the dispen
 
 Anyways, I though I'd make a tool to automate the submission process since 
 
-- I feel awkward scanning a QR code
-- You get locked out via a Cookie named `party-time`, and I don't appreciate being cut off!
-
-Additionally I wanted to see how this gizmo works from a black-box perspective!
+- I feel stupid scanning a QR code in public
+- You get locked out via a Cookie named `party-time`, and I don't appreciate being cut off
