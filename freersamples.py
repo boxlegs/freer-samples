@@ -67,6 +67,8 @@ def add_item(path, samples):
     name = input("Please enter the " + colored("name", "light_magenta", attrs=["bold"]) + " of the product/company for future reference: ")
     url = input("Please enter the " + colored("URL", "light_magenta", attrs=["bold"]) + " of the machine's QR code: ")
     
+    # TODO: Validate the URL through a dummy req
+    
     item = {"name": name, "url": url}
     samples.append(item)
     
