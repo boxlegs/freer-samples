@@ -115,9 +115,9 @@ def choose_item(path):
 
 def main():
     
-    print(colored(BANNER, 'light_magenta'))
-    
     args = get_args()
+    
+    print(colored(BANNER, 'light_magenta'))
     
     logger = setup_logger(args)
     
