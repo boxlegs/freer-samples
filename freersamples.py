@@ -58,6 +58,24 @@ def setup_logger(args):
 
     return logger 
 
+def add_item(path, samples):
+    
+    logger = logging.getLogger()
+    
+    logger.info("Prompting for new machine data...")
+    
+    name = input("Please enter the " + colored("name", "light_magenta", attrs=["bold"]) + " of the product/company for future reference: ")
+    url = input("Please enter the " + colored("URL", "light_magenta", attrs=["bold"]) + " of the machine's QR code: ")
+    
+    item = {"name": name, "url": url}
+    samples.append(item)
+    
+    with open(path, 'w') as f:
+        logger.info(f"Writing to {path}...")
+        json.dump(samples, f, indent=4)
+
+    return item
+
 def choose_item(path):
     
     logger = logging.getLogger()
@@ -66,17 +84,26 @@ def choose_item(path):
     
     if not os.path.exists(path):
         logger.error(f"The JSON sample data at {path} does not exist.")
+        sys.exit(1)
     else:
         with open(path) as f:
-            samples = json.load(f)
-        
-        print("Please select one of the following (e.g. 1 for Burberry):")
+            try:
+                samples = json.load(f)
+            except Exception as e:
+                logger.error(f"The JSON data at {path} is malformed and cannot be parsed.")
+                sys.exit(1)
+                
+        print("Please select one of the following (e.g. 1 for Burberry), or alternatively type " + colored("add", "light_magenta", attrs=["bold"]) + " to add a new machine:")
         [print(f"{i}) {item['name']}") for i, item in enumerate(samples)]
         while True:
             choice = input("Choice: ")
             try: 
-                chosen_item = samples[int(choice)]
+                if choice == "add":
+                    chosen_item = add_item(path, samples)
+                else:
+                    chosen_item = samples[int(choice)]
                 break
+            
             except Exception as e:
                 print("Bad choice! Try again...")
                 continue
