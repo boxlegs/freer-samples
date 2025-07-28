@@ -16,9 +16,9 @@ _/ ____\______  ____  ___________    __________    _____ ______ |  |   ____   __
 
 archive = "https://burberry.freesamples.net.au/TRSYULK8/WFXXJZ/5" 
 
-# Todo: make JSON-like format for storing machine data
+# TODO: make JSON-like format for storing machine data
 
-URL = "https://hugoboss.freesamples.net.au/TRSYULK8/WFXXJZ/5" # Replace this with QR code URL
+URL = "https://grenade.freesamples.net.au/ASHVRZ5L/WFXXJZ/2" # Replace this with QR code URL
 
 def announce(msg: str, err=False):
     print(f"{Fore.GREEN + '[+' if not err else Fore.RED + '[-'}]{Fore.RESET} {msg}")    
