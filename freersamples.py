@@ -102,6 +102,9 @@ def choose_item(path):
             try: 
                 if choice == "add":
                     chosen_item = add_item(path, samples)
+                elif choice in ["exit", "quit", "q"]:
+                    logger.info("Exiting...")
+                    sys.exit(0)
                 else:
                     chosen_item = samples[int(choice)]
                 break
